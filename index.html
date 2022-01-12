@@ -1,6 +1,12 @@
 <html>
     <head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
         <meta charset="UTF-8" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
         <link rel="stylesheet" href="index.css">
         <title>Your Dashboard</title>
     </head>
@@ -9,6 +15,7 @@
             <div class="top">
                 <div id="crypto">
                     <div id="crypto-top"></div>
+                    <div id="crypto-bottom"></div>
                 </div>
                 <div id="weather"></div>
             </div>
@@ -21,10 +28,41 @@
                 </div>
             </div>
 
-            <div class="popUpBg">
+            <div class="popUp">
                 <div class="settingsCard">
+                    <!-- <form class="form" id="form">
+                        <h1>Come To Tweak?? 😉 </h1>
+                        <label for="photoInput">Choose your type of images</label>
+                        <input type="search" placeholder="Search " name="photoInput" id="photoInput">
+                        <hr>
+                        <label for="cryptoInput">Crypto Price Update</label>
+                        <input type="search" placeholder="Search " name="cryptoInput" id="cryptoInput">
+                        <button type="submit" id="saveBtn" >Save</button>
 
+                    </form> -->
+                    <div class="settingsTop">
+                        <h1>Come To Tweak?? 😉 </h1>
+                        <div class="close">
+                            <svg xmlns="http://www.w3.org/2000/svg" id="close" width="16" height="15"><path fill-rule="evenodd" d="M14.718.075l.707.707L8.707 7.5l6.718 6.718-.707.707L8 8.207l-6.718 6.718-.707-.707L7.293 7.5.575.782l.707-.707L8 6.793 14.718.075z"/></svg>
+                        </div>
+                    </div>
                     
+                    <hr>
+                    <div class="imageSettings">
+                        <h2>Choose your type of images</h2>
+                        <input type="text" placeholder="Search " name="search" id="photoInput">
+
+                        <p>(note: could be a location, food🍲, photography, architecture, anyything!!)  </p>
+                    </div>
+                    <hr>
+                    <div class="cryptoSettings">
+                        <h2>Crypto Price Update</h2>
+                        <input type="text" placeholder="Search "  id="cryptoInput">
+
+                        <p>(note: Please be sure to use exact name)  </p>
+                    </div>
+                    
+                    <button id="saveBtn">Save</button>
                 </div>
 
             </div>
