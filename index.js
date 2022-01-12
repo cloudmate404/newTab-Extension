@@ -9,33 +9,53 @@ let photos ='food'
 let crypto ='bitcoin'
 
 
-gsap.set(popUp,{scale:0});
 
-function popping(){
-    gsap.fromTo(popUp,{
-        opacity:0, scale: 0
-    },{
-        opacity: 1, scale: 1, delay:2, duration:0.4, ease: Power1.easeOut
-    });
-}
-
-function popOut(){
-    gsap.to(popUp,{
-        opacity:0, scale:0, duration:0.3, ease: Power1.easeOut
-    });
+function hideSettings(){
+    popUp.id = 'hide';
 };
 
-settings.addEventListener('click', openSettings);
+function showSettings(){
+    popUp.id = 'show';
+};
 
-function openSettings(){
-    gsap.fromTo(settings,{
-        rotation: '0deg' 
-    },{
-        rotation: '360deg', duration: 2, ease: Power1.easeOut
-    });
+settings.addEventListener('click', showSettings);
 
-    popping()
-}
+closeSettings.addEventListener('click', hideSettings);
+
+// function initialPopup(){
+//     gsap.set(popUp,{scale:0});
+
+// };
+
+// initialPopup();
+
+
+
+// function popping(){
+//     gsap.fromTo(popUp,{
+//         opacity:0, scale: 0
+//     },{
+//         opacity: 1, scale: 1, delay:2, duration:0.4, ease: Power1.easeOut
+//     });
+// }
+
+// function popOut(){
+//     gsap.to(popUp,{
+//         opacity:0, scale:0, duration:0.3, ease: Power1.easeOut
+//     });
+// };
+
+// settings.addEventListener('click', openSettings);
+
+// function openSettings(){
+//     gsap.fromTo(settings,{
+//         rotation: '0deg' 
+//     },{
+//         rotation: '360deg', duration: 2, ease: Power1.easeOut
+//     });
+
+//     popping()
+// }
 
 
 const getPhotos = async (photos) => {
@@ -47,7 +67,7 @@ const getPhotos = async (photos) => {
         const response =  await fetch(base + query);
         const data = await response.json();
         console.log(data);
-        document.body.style.backgroundImage = `url(${data.urls.small})`
+        document.body.style.backgroundImage = `url(${data.urls.full})`
 		document.getElementById("author").textContent = `By: ${data.user.name}`
     }catch(error){
         console.log(error)
@@ -179,11 +199,13 @@ saveBtn.addEventListener('click',()=> {
     photos = photoInput.value;
     crypto = cryptoInput.value.toLowerCase();
 
-    
-    getPhotos(photos);
     getCrypto(crypto);
 
-    popOut();
+
+    getPhotos(photos);
+
+
+    hideSettings();
 
     cryptoInput.value =''
     photoInput.value =''
